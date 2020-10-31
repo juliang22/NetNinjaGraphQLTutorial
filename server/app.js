@@ -4,11 +4,12 @@ const PORT = 4000
 const { graphqlHTTP } = require('express-graphql') //Convention for express-graphql, allows express to understand graphql and to create an express server that runs the graphql api => use it as middleware on a single route that interacts with graphql 
 const schema = require('./schema/schema')
 const mongoose = require('mongoose')
+const { MONGODB } = require('../config.js')
 
 const cors = require('cors') // Allows cross-origin (from different servers) requests
 app.use(cors())
 
-mongoose.connect("mongodb+srv://user:user@cluster0.r2whe.mongodb.net/NetNinjaGraphQLTutorial?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(MONGODB, { useNewUrlParser: true, useUnifiedTopology: true })
 mongoose.connection.once('open', () => console.log(`Connection is open on port ${PORT}`))
 
 
