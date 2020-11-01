@@ -73,7 +73,6 @@ const Mutation = new GraphQLObjectType({
 					name: new GraphQLNonNull(args.name),
 					age: new GraphQLNonNull(args.age)
 				})
-				console.log(author)
 				return author.save() // created new instance of data type and automatically have access to properties on the data type like save, knows how to save because we are already connected to the right database and the model defined how the data should be stored with it's schema, .save returns what was saved an d we return that to send it back
 
 			}
